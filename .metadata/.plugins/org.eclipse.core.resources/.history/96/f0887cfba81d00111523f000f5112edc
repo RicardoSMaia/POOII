@@ -1,0 +1,117 @@
+package projetoSemanaII;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.border.BevelBorder;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+public class Atividade03 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Atividade03 frame = new Atividade03();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Atividade03() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JLabel lblNewLabel = new JLabel("TELA DE LOGIN");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
+		panel.add(lblNewLabel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new MigLayout("", "[grow,fill][grow,fill][grow,fill][grow,fill][grow,center][grow,center][grow,center][grow,fill]", "[grow,fill][][grow,fill][grow,fill][][][grow,fill][grow,fill][grow,fill][grow,fill][grow,fill][][grow,fill][grow,fill][grow,fill][grow,fill]"));
+		
+		JLabel lblNewLabel_1 = new JLabel("Usuário");
+		panel_1.add(lblNewLabel_1, "cell 0 1 6 1,alignx center");
+		
+		textField = new JTextField();
+		panel_1.add(textField, "cell 5 3,growx");
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Senha");
+		panel_1.add(lblNewLabel_2, "cell 5 4");
+		
+		textField_1 = new JTextField();
+		panel_1.add(textField_1, "cell 5 5,growx");
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Ok");
+		btnNewButton.setIcon(new ImageIcon(Atividade03.class.getResource("/resources/ok1.png")));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panel_1.add(btnNewButton, "flowx,cell 5 11");
+		
+		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1.setIcon(new ImageIcon(Atividade03.class.getResource("/resources/clean.png")));
+		panel_1.add(btnNewButton_1, "cell 5 11");
+		
+		try {
+			Image imagem = ImageIO
+					.read(Atividade03.class.getResource("/resources/Login-icon.png"))
+					.getScaledInstance(
+							240, 
+							240, 
+							DO_NOTHING_ON_CLOSE
+							);
+			
+			lblNewLabel_1.setIcon(new ImageIcon(imagem));
+		} catch (IOException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} 
+		
+
+	}
+
+}
