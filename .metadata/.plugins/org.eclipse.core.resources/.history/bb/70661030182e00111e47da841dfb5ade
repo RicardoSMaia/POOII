@@ -1,0 +1,43 @@
+package projetoSemanaIV;
+
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Questao01 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Questao01 frame = new Questao01();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Questao01() {
+		JOptionPane.showInputDialog(
+				this, 
+				"Insira o seu primeiro nome",
+				"Entrada de Dados", 
+				0, 
+				new ImageIcon(Questao01.class.getResource("/resources/homer.jpg")), 
+				null, 
+				0);
+	}
+
+}

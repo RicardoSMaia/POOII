@@ -1,0 +1,69 @@
+package projetoSemanaIV;
+
+import java.awt.BorderLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class DialogQuestao extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DialogQuestao(Questao04 jFrame) {
+		super(jFrame, true);
+		String[][] questao = jFrame.getQuestao();
+		String[][] opcoes = jFrame.getOpcoes();
+		String[] resposta = jFrame.getRespostas();
+		setTitle(questao[0][0]);
+		setBounds(0, 0, 219, 249);
+		getContentPane().setLayout(new MigLayout("", "[][][][]", "[][][][][][][]"));
+		
+		JLabel lblLabelQuestao = new JLabel("");
+		
+		lblLabelQuestao.setText(questao[1][0]);
+		
+		getContentPane().add(lblLabelQuestao, "cell 1 1");
+		
+		ButtonGroup grupo = new ButtonGroup();
+		
+		JRadioButton rdbtnNewRadioButton1 = new JRadioButton(opcoes[0][0]);
+		getContentPane().add(rdbtnNewRadioButton1, "cell 1 2");
+		rdbtnNewRadioButton1.setActionCommand("0");
+		
+		JRadioButton rdbtnNewRadioButton2 = new JRadioButton(opcoes[1][0]);
+		getContentPane().add(rdbtnNewRadioButton2, "cell 1 3");
+		rdbtnNewRadioButton2.setActionCommand("1");
+		
+		JRadioButton rdbtnNewRadioButton3 = new JRadioButton(opcoes[2][0]);
+		getContentPane().add(rdbtnNewRadioButton3, "cell 1 4");
+		rdbtnNewRadioButton3.setActionCommand("2");
+		
+		JRadioButton rdbtnNewRadioButton4 = new JRadioButton(opcoes[3][0]);
+		getContentPane().add(rdbtnNewRadioButton4, "cell 1 5");
+		rdbtnNewRadioButton4.setActionCommand("3");
+		
+		grupo.add(rdbtnNewRadioButton1);
+		grupo.add(rdbtnNewRadioButton2);
+		grupo.add(rdbtnNewRadioButton3);
+		grupo.add(rdbtnNewRadioButton4);
+		
+		JButton btnNewButton = new JButton("Responder");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(grupo.getSelection().getActionCommand().equals(resposta[0]))
+			}
+		});
+		getContentPane().add(btnNewButton, "cell 2 6");
+		
+		setVisible(true);
+	}
+}

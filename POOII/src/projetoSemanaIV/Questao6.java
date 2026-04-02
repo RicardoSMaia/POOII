@@ -1,0 +1,120 @@
+package projetoSemanaIV;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.awt.event.ActionEvent;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JTextField;
+
+public class Questao6 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textFieldNome;
+	private JTextField textFieldIdade;
+	private JTextField textFieldSexo;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Questao6 frame = new Questao6();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Questao6() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelFoto = new JPanel();
+		panelFoto.setBorder(BorderFactory.createTitledBorder("Foto"));
+		panelFoto.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		contentPane.add(panelFoto, BorderLayout.WEST);
+		panelFoto.setLayout(new BoxLayout(panelFoto, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabelFoto = new JLabel("");
+		lblNewLabelFoto.setPreferredSize(new Dimension(150, 150));
+		lblNewLabelFoto.setAlignmentX(CENTER_ALIGNMENT);
+		panelFoto.add(lblNewLabelFoto);
+		
+		JButton btnNewButtonFoto = new JButton("Carregar Foto");
+		btnNewButtonFoto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser jFileChooser = new JFileChooser();
+				jFileChooser.setFileFilter(new FileNameExtensionFilter("Image FIle", "jpg", "png"));
+				jFileChooser.setAcceptAllFileFilterUsed(false);
+				int resp = jFileChooser.showOpenDialog(contentPane);
+				if(resp == JFileChooser.APPROVE_OPTION) {
+					File arquivo = jFileChooser.getSelectedFile();
+					lblNewLabelFoto.setIcon(new ImageIcon(arquivo.getAbsolutePath()));
+				}
+			}
+		});
+		panelFoto.add(btnNewButtonFoto);
+		
+		JPanel panelDados = new JPanel();
+		panelDados.setBorder(BorderFactory.createTitledBorder("Dados"));
+		panelDados.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		contentPane.add(panelDados, BorderLayout.CENTER);
+		panelDados.setLayout(new MigLayout("", "[][][][][][grow]", "[][][][][][][][][]"));
+		
+		JLabel lblNewLabelNome = new JLabel("Nome: ");
+		panelDados.add(lblNewLabelNome, "cell 4 0,alignx trailing");
+		
+		textFieldNome = new JTextField();
+		panelDados.add(textFieldNome, "cell 5 0,growx");
+		textFieldNome.setColumns(10);
+		
+		JLabel lblNewLabelIdade = new JLabel("Idade: ");
+		panelDados.add(lblNewLabelIdade, "cell 4 1,alignx trailing");
+		
+		textFieldIdade = new JTextField();
+		panelDados.add(textFieldIdade, "cell 5 1,growx");
+		textFieldIdade.setColumns(10);
+		
+		JLabel lblNewLabelSexo = new JLabel("Sexo: ");
+		panelDados.add(lblNewLabelSexo, "cell 4 2,alignx trailing");
+		
+		textFieldSexo = new JTextField();
+		panelDados.add(textFieldSexo, "cell 5 2,growx");
+		textFieldSexo.setColumns(10);
+		
+		JButton btnNewButtonSalvar = new JButton("Salvar");
+		panelDados.add(btnNewButtonSalvar, "cell 5 8");
+
+	}
+
+}

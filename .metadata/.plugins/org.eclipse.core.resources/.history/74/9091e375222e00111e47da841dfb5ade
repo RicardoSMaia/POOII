@@ -1,0 +1,20 @@
+package projetoSemanaIV;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+
+public class DialogQuestao extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DialogQuestao(JFrame jFrame) {
+		super(jFrame, "Questões", true);
+		setBounds(0, 0, 507, 507);
+		setLayout(new BorderLayout());
+		setVisible(true);
+	}
+}

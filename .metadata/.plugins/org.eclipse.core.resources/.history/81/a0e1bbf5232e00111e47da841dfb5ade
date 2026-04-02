@@ -1,0 +1,53 @@
+package projetoSemanaIV;
+
+import java.awt.BorderLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
+public class DialogQuestao extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DialogQuestao(Questao04 jFrame) {
+		super(jFrame, true);
+		String[][] questao = jFrame.getQuestao();
+		String[][] opcoes = jFrame.getOpcoes();
+		setTitle(questao[0][0]);
+		setBounds(0, 0, 507, 507);
+		getContentPane().setLayout(new MigLayout("", "[][]", "[][][][][][]"));
+		
+		JLabel lblLabelQuestao = new JLabel("");
+		
+		lblLabelQuestao.setText(questao[1][0]);
+		
+		getContentPane().add(lblLabelQuestao, "cell 1 1");
+		
+		ButtonGroup grupo = new ButtonGroup();
+		
+		JRadioButton rdbtnNewRadioButton1 = new JRadioButton(opcoes[0][0]);
+		getContentPane().add(rdbtnNewRadioButton1, "cell 1 2");
+		
+		JRadioButton rdbtnNewRadioButton2 = new JRadioButton(opcoes[1][0]);
+		getContentPane().add(rdbtnNewRadioButton2, "cell 1 3");
+		
+		JRadioButton rdbtnNewRadioButton3 = new JRadioButton(opcoes[2][0]);
+		getContentPane().add(rdbtnNewRadioButton3, "cell 1 4");
+		
+		JRadioButton rdbtnNewRadioButton4 = new JRadioButton(opcoes[3][0]);
+		getContentPane().add(rdbtnNewRadioButton4, "cell 1 5");
+		
+		grupo.add(rdbtnNewRadioButton1);
+		grupo.add(rdbtnNewRadioButton2);
+		grupo.add(rdbtnNewRadioButton3);
+		grupo.add(rdbtnNewRadioButton4);
+		
+		setVisible(true);
+	}
+}

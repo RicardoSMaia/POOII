@@ -1,0 +1,10 @@
+package projetoSemanaIV;
+
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+
+public class DialogQuestao extends JDialog {
+	public DialogQuestao(JFrame jFrame) {
+		setBounds(0, 0, 507, 507);
+	}
+}

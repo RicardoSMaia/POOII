@@ -1,0 +1,89 @@
+package projetoSemanaIV;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import net.miginfocom.swing.MigLayout;
+
+public class Questao6 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Questao6 frame = new Questao6();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Questao6() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JPanel panelFoto = new JPanel();
+		panelFoto.setBorder(BorderFactory.createTitledBorder("Foto"));
+		panelFoto.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		contentPane.add(panelFoto, BorderLayout.WEST);
+		panelFoto.setLayout(new BoxLayout(panelFoto, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabelFoto = new JLabel("");
+		lblNewLabelFoto.setPreferredSize(new Dimension(150, 150));
+		lblNewLabelFoto.setAlignmentX(CENTER_ALIGNMENT);
+		panelFoto.add(lblNewLabelFoto);
+		
+		JButton btnNewButtonFoto = new JButton("Carregar Foto");
+		btnNewButtonFoto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblNewLabelFoto.setIcon(new ImageIcon(Questao6.class.getResource("/resources/homer.jpg")));
+			}
+		});
+		panelFoto.add(btnNewButtonFoto);
+		
+		JPanel panelDados = new JPanel();
+		panelDados.setBorder(BorderFactory.createTitledBorder("Dados"));
+		panelDados.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		contentPane.add(panelDados, BorderLayout.CENTER);
+		panelDados.setLayout(new MigLayout("", "[][][][][]", "[][][]"));
+		
+		JLabel lblNewLabelNome = new JLabel("Nome: ");
+		panelDados.add(lblNewLabelNome, "cell 4 0");
+		
+		JLabel lblNewLabelIdade = new JLabel("Idade: ");
+		panelDados.add(lblNewLabelIdade, "cell 4 1");
+		
+		JLabel lblNewLabelSexo = new JLabel("Sexo: ");
+		panelDados.add(lblNewLabelSexo, "cell 4 2");
+
+	}
+
+}
