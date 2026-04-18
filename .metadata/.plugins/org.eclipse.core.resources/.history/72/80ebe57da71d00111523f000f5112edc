@@ -16,7 +16,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import net.miginfocom.swing.MigLayout;
-import projetoSemanaI.Ibagens;
+import projetoSemanaI.Imagens;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;

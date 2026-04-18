@@ -16,7 +16,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import net.miginfocom.swing.MigLayout;
-import projetoSemanaI.Ibagens;
+import projetoSemanaI.Imagens;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -108,7 +108,7 @@ public class Atividade03 extends JFrame {
 		Graphics2D graphics2D = (Graphics2D)graphics;
 		
 		try {
-			Image imagem = ImageIO.read(Ibagens.class.getResource("/resources/Login-icon.jpg"));
+			Image imagem = ImageIO.read(Imagens.class.getResource("/resources/Login-icon.jpg"));
 			
 			graphics2D.drawImage(imagem, 100, 30, this);
 		} catch (IOException e) {
