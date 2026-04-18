@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Ibagens extends JFrame {
+public class Imagens extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -23,7 +23,7 @@ public class Ibagens extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ibagens frame = new Ibagens();
+					Imagens frame = new Imagens();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class Ibagens extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ibagens() {
+	public Imagens() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +49,7 @@ public class Ibagens extends JFrame {
 		Graphics2D g2 = (Graphics2D)g;
 		
 		try {
-			Image imagem = ImageIO.read(Ibagens.class.getResource("/resources/homer.jpg"));
+			Image imagem = ImageIO.read(Imagens.class.getResource("/resources/homer.jpg"));
 			
 			g2.drawImage(imagem, 100, 30, this);
 		} catch (IOException e) {
