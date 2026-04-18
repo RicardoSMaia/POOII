@@ -59,7 +59,7 @@ public class Atividade03 extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JLabel lblNewLabel = new JLabel("TELA DE LOGIN");
+		JLabel lblNewLabel = new JLabel("Tela de Login");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
 		panel.add(lblNewLabel);
 		
